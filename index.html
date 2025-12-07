@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Praveen Palisetty | Operations & Project Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.65);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #1e293b 0, #020617 52%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 16px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 980px;
+    }
+
+    /* HEADER */
+
+    .header {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.92));
+      border-radius: 24px;
+      padding: 22px 22px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+      margin-bottom: 26px;
+    }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .name {
+      font-size: 26px;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+    }
+
+    .tagline {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+    }
+
+    .pill.accent {
+      border-color: rgba(56, 189, 248, 0.9);
+      background: var(--accent-soft);
+      color: #e0f2fe;
+    }
+
+    .links-row {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .link-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 11px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      text-decoration: none;
+      color: var(--muted);
+      transition: all 0.18s ease;
+    }
+
+    .link-chip span.icon {
+      font-size: 14px;
+    }
+
+    .link-chip:hover {
+      border-color: var(--accent);
+      color: #e5f8ff;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.7);
+    }
+
+    /* LAYOUT */
+
+    .grid {
+      display: grid;
+      grid-template-columns: 2.1fr 1.1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 840px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* SECTIONS */
+
+    .section {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(30, 64, 175, 0.45);
+      padding: 18px 18px 16px;
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.72);
+      margin-bottom: 16px;
+    }
+
+    .section h2 {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .section h2 span {
+      color: var(--accent);
+    }
+
+    .summary-text {
+      font-size: 14px;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    .summary-text strong {
+      font-weight: 600;
+      color: #e0f2fe;
+    }
+
+    /* PROJECTS */
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .project-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.96));
+      border-radius: 16px;
+      border: 1px solid rgba(30, 64, 175, 0.5);
+      padding: 12px 12px 11px;
+      transition: all 0.18s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.85);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .project-link {
+      font-size: 12px;
+      text-decoration: none;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    .project-body {
+      font-size: 13px;
+      color: #d1d5db;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    .project-body span.metric {
+      color: #e0f2fe;
+      font-weight: 600;
+    }
+
+    /* EXPERIENCE */
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 4px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .job-title {
+      font-weight: 600;
+    }
+
+    .job-company {
+      color: var(--muted);
+    }
+
+    .job-date {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .bullets {
+      list-style: none;
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding-left: 0;
+    }
+
+    .bullets li {
+      font-size: 13px;
+      color: #d1d5db;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.45;
+    }
+
+    .bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* SIDEBAR */
+
+    .mini-section {
+      margin-bottom: 14px;
+    }
+
+    .mini-section h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pill-skill {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: #d1d5db;
+    }
+
+    .edu-item {
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .edu-item strong {
+      display: block;
+      color: #e5e7eb;
+    }
+
+    .edu-meta {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .cert-list {
+      font-size: 12px;
+      color: #d1d5db;
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .footer-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-top">
+        <div>
+          <div class="name">Praveen Palisetty</div>
+          <div class="tagline">Operations & Project Management · Banking · Analytics</div>
+        </div>
+        <div class="tagline">
+          📞 +91 9398787726<br />
+          ✉️ praveenpalisetty570@gmail.com
+        </div>
+      </div>
+
+      <div class="pill-row">
+        <div class="pill accent">Process Optimization</div>
+        <div class="pill">KYC & Compliance</div>
+        <div class="pill">Data-Driven Decision Making</div>
+        <div class="pill">Client & Stakeholder Management</div>
+      </div>
+
+      <div class="links-row">
+        <a class="link-chip" href="https://linkedin.com/in/palisettypraveen" target="_blank">
+          <span class="icon">🔗</span><span>LinkedIn</span>
+        </a>
+        <a class="link-chip" href="https://github.com/Saipraveen570" target="_blank">
+          <span class="icon">💻</span><span>GitHub</span>
+        </a>
+        <a class="link-chip" href="mailto:praveenpalisetty570@gmail.com">
+          <span class="icon">✉️</span><span>Email</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- LEFT: SUMMARY + PROJECTS + EXPERIENCE -->
+      <main>
+        <section class="section">
+          <h2><span>Summary</span></h2>
+          <p class="summary-text">
+            Results-driven <strong>Operations professional</strong> specializing in process optimization,
+            compliance management, and data-led execution. Delivered <strong>18% faster onboarding</strong> and maintained
+            <strong>100% audit compliance across 500+ accounts</strong> through high-impact reporting, workflow improvements,
+            and cross-functional collaboration.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2><span>Featured Projects</span></h2>
+          <div class="projects-list">
+
+            <article class="project-card">
+              <div class="project-header">
+                <div>
+                  <div class="project-title">KYC Documentation Dashboard & Alert System</div>
+                  <div class="project-meta">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Compliance</span>
+                    <span>2024</span>
+                  </div>
+                </div>
+                <a class="project-link" href="https://github.com/Saipraveen570/KYC-Documentation-Dashboard-And-Alert-System" target="_blank">
+                  🔗 <span>GitHub</span>
+                </a>
+              </div>
+              <p class="project-body">
+                Built a real-time compliance dashboard for <span class="metric">2,000+ KYC records</span> with automated expiry
+                and exception alerts, reducing compliance risk by <span class="metric">30%</span> and saving
+                <span class="metric">15+ hours/week</span> in manual checks.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <div class="project-header">
+                <div>
+                  <div class="project-title">Financial Performance Analysis Dashboard</div>
+                  <div class="project-meta">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Analytics</span>
+                    <span>2024</span>
+                  </div>
+                </div>
+                <a class="project-link" href="https://github.com/Saipraveen570/FINANCIAL-PERFORMANCE-ANALYSIS-DASHBOARD" target="_blank">
+                  🔗 <span>GitHub</span>
+                </a>
+              </div>
+              <p class="project-body">
+                Analyzed <span class="metric">$24.9M revenue</span> and <span class="metric">$10.5M profit</span> across 3 regions with automated KPI dashboards,
+                reducing manual reporting by <span class="metric">60%</span> and standardizing leadership reporting.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <div class="project-header">
+                <div>
+                  <div class="project-title">Personal AI Assistant Bot – Productivity Automation</div>
+                  <div class="project-meta">
+                    <span class="tag">Automation</span>
+                    <span class="tag">APIs</span>
+                    <span>2025</span>
+                  </div>
+                </div>
+                <a class="project-link" href="https://github.com/Saipraveen570/banking-support-chatbot" target="_blank">
+                  🔗 <span>GitHub</span>
+                </a>
+              </div>
+              <p class="project-body">
+                Built a productivity assistant to automate scheduling, email prioritization and reminders, saving
+                <span class="metric">10+ hours/month</span> and improving on-time task completion by <span class="metric">25%</span>
+                via Google Workspace and Outlook integration.
+              </p>
+            </article>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <h2><span>Experience</span></h2>
+          <div>
+            <div class="job-header">
+              <div>
+                <div class="job-title">Assistant Manager – Operations</div>
+                <div class="job-company">Axis Bank · Hyderabad, India</div>
+              </div>
+              <div class="job-date">Aug 2024 – Feb 2025</div>
+            </div>
+            <ul class="bullets">
+              <li>Orchestrated end-to-end KYC and onboarding for <strong>500+ client accounts</strong> with <strong>100% regulatory compliance</strong> and zero audit findings.</li>
+              <li>Reduced onboarding <strong>TAT by 18%</strong> using Excel-based workflow optimization and data validation.</li>
+              <li>Achieved a <strong>12% increase in onboarding</strong> by aligning operational reporting with sales and product teams.</li>
+              <li>Managed a portfolio of <strong>300+ retail clients</strong>, improving customer satisfaction by <strong>15%</strong> through proactive service delivery.</li>
+              <li>Enhanced cross-sell conversions by <strong>15%</strong> through transaction insights and data-driven recommendations.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <!-- RIGHT: SKILLS / EDUCATION / CERTS -->
+      <aside>
+        <section class="section">
+          <div class="mini-section">
+            <h3>Core Skills</h3>
+            <div class="pill-list">
+              <span class="pill-skill">Process Optimization</span>
+              <span class="pill-skill">KYC & AML</span>
+              <span class="pill-skill">Compliance & Risk</span>
+              <span class="pill-skill">Stakeholder Coordination</span>
+              <span class="pill-skill">SLA Management</span>
+              <span class="pill-skill">Reporting & Dashboards</span>
+            </div>
+          </div>
+
+          <div class="mini-section">
+            <h3>Tools</h3>
+            <div class="pill-list">
+              <span class="pill-skill">Excel (Pivot, VLOOKUP)</span>
+              <span class="pill-skill">Power BI</span>
+              <span class="pill-skill">Google Workspace</span>
+            </div>
+          </div>
+
+          <div class="mini-section">
+            <h3>Education</h3>
+            <div class="edu-item">
+              <strong>Postgraduate in Banking Services</strong>
+              <div class="edu-meta">NIIT University · 2024 – 2025</div>
+            </div>
+            <div class="edu-item">
+              <strong>B.E. Mechanical Engineering</strong>
+              <div class="edu-meta">VIIT, Visakhapatnam · 2020 – 2023</div>
+            </div>
+          </div>
+
+          <div class="mini-section">
+            <h3>Certifications</h3>
+            <ul class="cert-list">
+              <li>Google Data Analytics – Coursera</li>
+              <li>Microsoft Excel Certification</li>
+              <li>Microsoft Power BI</li>
+              <li>McKinsey.org Forward Program</li>
+              <li>Axis Bank Postgraduate Job-Linked Training</li>
+            </ul>
+          </div>
+
+          <div class="footer-note">
+            Open to roles in Operations, Project Management, and data-informed business execution.
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
