@@ -4,13 +4,107 @@
   <meta charset="UTF-8" />
   <title>Experience | Praveen Palisetty</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Same CSS as index.html -->
+
   <style>
-    /* copy the exact same <style> content from index.html here */
+    :root {
+      --bg: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.65);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #1e293b 0, #020617 52%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 16px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page { width: 100%; max-width: 980px; }
+
+    .header {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.92));
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 20px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .name { font-size: 26px; font-weight: 650; }
+    .tagline { font-size: 13px; color: var(--muted); }
+
+    .links-row, .nav {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .link-chip, .nav a {
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      color: var(--muted);
+      transition: 0.15s;
+    }
+
+    .link-chip:hover, .nav a:hover {
+      border-color: var(--accent);
+      color: #e5f8ff;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .nav a.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: #e0f2fe;
+    }
+
+    .section {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .job {
+      margin-bottom: 20px;
+    }
+
+    .job-title { font-weight: 600; }
+    .job-meta { font-size: 12px; color: var(--muted); }
+
+    .bullets {
+      margin-top: 8px;
+      padding-left: 18px;
+      list-style: disc;
+      font-size: 13px;
+      color: #d1d5db;
+    }
+
   </style>
 </head>
 <body>
   <div class="page">
+
     <header class="header">
       <div class="header-top">
         <div>
@@ -18,21 +112,15 @@
           <div class="tagline">Operations & Project Management · KYC · Analytics</div>
         </div>
         <div class="tagline">
-          📞 +91 9398787726<br />
+          📞 +91 9398787726<br>
           ✉️ praveenpalisetty570@gmail.com
         </div>
       </div>
 
       <div class="links-row">
-        <a class="link-chip" href="https://linkedin.com/in/palisettypraveen" target="_blank">
-          <span class="icon">🔗</span><span>LinkedIn</span>
-        </a>
-        <a class="link-chip" href="https://github.com/Saipraveen570" target="_blank">
-          <span class="icon">💻</span><span>GitHub</span>
-        </a>
-        <a class="link-chip" href="mailto:praveenpalisetty570@gmail.com">
-          <span class="icon">✉️</span><span>Email</span>
-        </a>
+        <a class="link-chip" href="index.html">Home</a>
+        <a class="link-chip" href="projects.html">Projects</a>
+        <a class="link-chip" href="experience.html">Experience</a>
       </div>
 
       <nav class="nav">
@@ -42,58 +130,41 @@
       </nav>
     </header>
 
-    <main>
-      <section class="section">
-        <h2><span>Professional Experience</span></h2>
+    <section class="section">
+      <h2>Professional Experience</h2>
 
-        <!-- Axis Bank -->
-        <div>
-          <div class="job-header">
-            <div>
-              <div class="job-title">Assistant Manager – Operations</div>
-              <div class="job-company">Axis Bank · Hyderabad, India</div>
-            </div>
-            <div class="job-date">Aug 2024 – Feb 2025</div>
-          </div>
-          <ul class="bullets">
-            <li>Orchestrated end-to-end KYC and onboarding for <strong>500+ client accounts</strong> with <strong>100% regulatory compliance</strong> and zero audit findings.</li>
-            <li>Reduced onboarding <strong>TAT by 18%</strong> using Excel-based workflow optimization and data validation.</li>
-            <li>Achieved a <strong>12% increase in onboarding</strong> by aligning operational reporting with sales and product teams.</li>
-            <li>Managed a portfolio of <strong>300+ retail clients</strong>, improving customer satisfaction by <strong>15%</strong> through proactive service delivery.</li>
-            <li>Enhanced cross-sell conversions by <strong>15%</strong> through transaction insights and data-driven recommendations.</li>
-          </ul>
-        </div>
+      <div class="job">
+        <div class="job-title">Assistant Manager – Operations</div>
+        <div class="job-meta">Axis Bank · Hyderabad · Aug 2024 – Feb 2025</div>
+        <ul class="bullets">
+          <li>Orchestrated end-to-end KYC and onboarding for 500+ client accounts with 100% compliance.</li>
+          <li>Reduced onboarding TAT by 18% using Excel-based workflow optimization.</li>
+          <li>Managed 300+ retail clients with 15% improvement in customer satisfaction.</li>
+          <li>Achieved a 12% increase in onboarding through reporting and cross-team collaboration.</li>
+          <li>Enhanced cross-sell conversions by 15% via data-driven insights.</li>
+        </ul>
+      </div>
 
-        <!-- Internship -->
-        <div style="margin-top:16px;">
-          <div class="job-header">
-            <div>
-              <div class="job-title">Data Analyst Intern</div>
-              <div class="job-company">MedTourEasy · Visakhapatnam, India</div>
-            </div>
-            <div class="job-date">Mar 2025</div>
-          </div>
-          <ul class="bullets">
-            <li>Worked on structured healthcare datasets to support exploratory data analysis and reporting.</li>
-            <li>Built Excel and Power BI reports to track operational performance and business metrics.</li>
-          </ul>
-        </div>
+      <div class="job">
+        <div class="job-title">Data Analyst Intern</div>
+        <div class="job-meta">MedTourEasy · Mar 2025</div>
+        <ul class="bullets">
+          <li>Performed exploratory analysis on structured healthcare datasets.</li>
+          <li>Built Power BI and Excel reports for performance tracking.</li>
+        </ul>
+      </div>
 
-        <!-- Job Simulations -->
-        <div style="margin-top:16px;">
-          <div class="job-header">
-            <div>
-              <div class="job-title">Virtual Job Simulations (Analytics & Consulting)</div>
-              <div class="job-company">Deloitte · McKinsey.org</div>
-            </div>
-          </div>
-          <ul class="bullets">
-            <li>Completed Deloitte Data Analytics Virtual Internship focused on data cleaning, visualization, and business insight generation.</li>
-            <li>Completed McKinsey Forward Program covering structured problem-solving, stakeholder communication, and consulting frameworks.</li>
-          </ul>
-        </div>
-      </section>
-    </main>
+      <div class="job">
+        <div class="job-title">Virtual Job Simulations (Analytics & Consulting)</div>
+        <div class="job-meta">Deloitte & McKinsey.org</div>
+        <ul class="bullets">
+          <li>Deloitte Data Analytics Virtual Internship – data cleaning & visualization.</li>
+          <li>McKinsey Forward Program – structured problem solving & business communication.</li>
+        </ul>
+      </div>
+
+    </section>
+
   </div>
 </body>
 </html>
