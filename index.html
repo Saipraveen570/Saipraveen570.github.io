@@ -8,13 +8,10 @@
   <style>
     :root {
       --bg: #0f172a;
-      --bg-soft: #111827;
-      --card: #020617;
       --accent: #38bdf8;
       --accent-soft: rgba(56, 189, 248, 0.12);
       --text: #e5e7eb;
       --muted: #9ca3af;
-      --border: #1f2937;
       --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.65);
       --radius-lg: 18px;
       --radius-full: 999px;
@@ -35,55 +32,53 @@
 
     .page { width: 100%; max-width: 980px; }
 
-    /* HEADER + NAV */
+    /* HEADER */
 
     .header {
       background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.92));
       border-radius: 24px;
-      padding: 18px 18px 12px;
-      border: 1px solid rgba(148, 163, 184, 0.22);
+      padding: 18px;
       box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(10px);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
     }
 
     .header-top {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
+      flex-wrap: wrap;
       gap: 10px;
-      align-items: baseline;
+      align-items: flex-start;
     }
 
     .name { font-size: 26px; font-weight: 650; letter-spacing: 0.02em; }
     .tagline { font-size: 13px; color: var(--muted); }
 
     .links-row {
-      margin-top: 8px;
+      margin-top: 10px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      font-size: 13px;
     }
 
     .link-chip {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 11px;
+      padding: 6px 12px;
       border-radius: var(--radius-full);
-      background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.9);
       text-decoration: none;
       color: var(--muted);
-      transition: all 0.18s ease;
+      font-size: 13px;
+      transition: all 0.15s ease;
     }
-
-    .link-chip span.icon { font-size: 14px; }
 
     .link-chip:hover {
       border-color: var(--accent);
       color: #e5f8ff;
+      background: rgba(15, 23, 42, 1);
       transform: translateY(-1px);
       box-shadow: 0 8px 22px rgba(15, 23, 42, 0.7);
     }
@@ -119,95 +114,100 @@
       color: #e0f2fe;
     }
 
-    /* SECTIONS */
+    /* SECTIONS / CARDS */
 
     .section {
       background: rgba(15, 23, 42, 0.96);
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(30, 64, 175, 0.45);
-      padding: 18px 18px 16px;
-      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.72);
+      padding: 18px;
       margin-bottom: 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(30, 64, 175, 0.4);
     }
 
     .section h2 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 10px;
     }
 
-    .section h2 span { color: var(--accent); }
+    .section h2 span {
+      color: var(--accent);
+    }
 
     .summary-text {
       font-size: 14px;
-      color: #e5e7eb;
       line-height: 1.6;
+      color: #e5e7eb;
     }
 
-    .summary-text strong { font-weight: 600; color: #e0f2fe; }
+    .summary-text strong {
+      color: #e0f2fe;
+      font-weight: 600;
+    }
 
     .pill-list {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 4px;
     }
 
     .pill-skill {
       font-size: 11px;
-      padding: 5px 9px;
+      padding: 5px 10px;
       border-radius: var(--radius-full);
       background: rgba(15, 23, 42, 0.96);
       border: 1px solid rgba(55, 65, 81, 0.9);
       color: #d1d5db;
     }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: 1.6fr 1.1fr;
-      gap: 14px;
-    }
-
-    @media (max-width: 840px) {
-      .two-col { grid-template-columns: 1fr; }
-    }
-
-    .mini-section h3 {
+    .edu-item {
       font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      margin-bottom: 8px;
     }
 
-    .edu-item { font-size: 12px; margin-bottom: 8px; }
-    .edu-item strong { display: block; color: #e5e7eb; }
-    .edu-meta { color: var(--muted); font-size: 11px; }
+    .edu-item strong {
+      display: block;
+      color: #e5e7eb;
+    }
+
+    .edu-meta {
+      font-size: 12px;
+      color: var(--muted);
+    }
 
     .cert-list {
-      font-size: 12px;
+      font-size: 13px;
       color: #d1d5db;
       list-style: none;
       padding-left: 0;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
     }
 
-    .cta {
+    .cta-text {
       font-size: 13px;
-      color: #d1d5db;
-      margin-top: 4px;
+      color: #e5e7eb;
+    }
+
+    .cta-text strong {
+      color: #e0f2fe;
+    }
+
+    @media (max-width: 768px) {
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
   <div class="page">
-
     <header class="header">
       <div class="header-top">
         <div>
@@ -221,15 +221,9 @@
       </div>
 
       <div class="links-row">
-        <a class="link-chip" href="https://linkedin.com/in/palisettypraveen" target="_blank">
-          <span class="icon">🔗</span><span>LinkedIn</span>
-        </a>
-        <a class="link-chip" href="https://github.com/Saipraveen570" target="_blank">
-          <span class="icon">💻</span><span>GitHub</span>
-        </a>
-        <a class="link-chip" href="mailto:praveenpalisetty570@gmail.com">
-          <span class="icon">✉️</span><span>Email</span>
-        </a>
+        <a class="link-chip" href="https://linkedin.com/in/palisettypraveen" target="_blank">🔗 LinkedIn</a>
+        <a class="link-chip" href="https://github.com/Saipraveen570" target="_blank">💻 GitHub</a>
+        <a class="link-chip" href="mailto:praveenpalisetty570@gmail.com">✉️ Email</a>
       </div>
 
       <nav class="nav">
@@ -240,76 +234,70 @@
     </header>
 
     <main>
-      <div class="two-col">
-        <!-- Left: Summary -->
-        <section class="section">
-          <h2><span>Summary</span></h2>
-          <p class="summary-text">
-            Results-driven <strong>Operations professional</strong> specializing in process optimization,
-            KYC/AML compliance, and data-led execution. Delivered <strong>18% faster onboarding</strong> and maintained
-            <strong>100% audit compliance across 500+ accounts</strong> through high-impact reporting, workflow improvements,
-            and cross-functional collaboration.
-          </p>
-        </section>
-
-        <!-- Right: Quick Skills -->
-        <section class="section">
-          <div class="mini-section">
-            <h3>Core Skills</h3>
-            <div class="pill-list">
-              <span class="pill-skill">KYC & AML</span>
-              <span class="pill-skill">Risk & Compliance</span>
-              <span class="pill-skill">Process Optimization</span>
-              <span class="pill-skill">Stakeholder Management</span>
-              <span class="pill-skill">Reporting & Dashboards</span>
-              <span class="pill-skill">SLA Management</span>
-            </div>
-          </div>
-
-          <div class="mini-section" style="margin-top:10px;">
-            <h3>Tools</h3>
-            <div class="pill-list">
-              <span class="pill-skill">Excel (Pivot, VLOOKUP)</span>
-              <span class="pill-skill">Power BI</span>
-              <span class="pill-skill">Google Workspace</span>
-              <span class="pill-skill">SQL (Basics)</span>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- Education + Certifications -->
+      <!-- SUMMARY CARD -->
       <section class="section">
-        <div class="two-col">
-          <div>
-            <div class="mini-section">
-              <h3>Education</h3>
-              <div class="edu-item">
-                <strong>Postgraduate in Banking Services</strong>
-                <div class="edu-meta">NIIT University · 2024 – 2025</div>
-              </div>
-              <div class="edu-item">
-                <strong>B.E. Mechanical Engineering</strong>
-                <div class="edu-meta">VIIT, Visakhapatnam · 2020 – 2023</div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="mini-section">
-              <h3>Certifications</h3>
-              <ul class="cert-list">
-                <li>Google Data Analytics – Coursera</li>
-                <li>Microsoft Excel Certification</li>
-                <li>Microsoft Power BI</li>
-                <li>Deloitte Data Analytics Job Simulation</li>
-                <li>McKinsey Forward Program</li>
-              </ul>
-            </div>
-          </div>
+        <h2><span>Summary</span></h2>
+        <p class="summary-text">
+          Results-driven <strong>Operations professional</strong> specializing in process optimization,
+          KYC/AML compliance, and data-led execution. Delivered <strong>18% faster onboarding</strong> and maintained
+          <strong>100% audit compliance across 500+ accounts</strong> through high-impact reporting, workflow
+          improvements, and cross-functional collaboration.
+        </p>
+      </section>
+
+      <!-- SKILLS CARD -->
+      <section class="section">
+        <h2><span>Core Skills</span></h2>
+        <div class="pill-list" style="margin-bottom:10px;">
+          <span class="pill-skill">KYC & AML</span>
+          <span class="pill-skill">Risk & Compliance</span>
+          <span class="pill-skill">Process Optimization</span>
+          <span class="pill-skill">Stakeholder Management</span>
+          <span class="pill-skill">Reporting & Dashboards</span>
+          <span class="pill-skill">SLA Management</span>
         </div>
-        <div class="cta">
-          Open to opportunities in <strong>Operations, KYC/AML Analytics, Risk Analysis, and Project Management.</strong>
+
+        <h2 style="margin-top:12px;"><span>Tools</span></h2>
+        <div class="pill-list">
+          <span class="pill-skill">Excel (Pivot, VLOOKUP)</span>
+          <span class="pill-skill">Power BI</span>
+          <span class="pill-skill">Google Workspace</span>
+          <span class="pill-skill">SQL (Basics)</span>
         </div>
+      </section>
+
+      <!-- EDUCATION CARD -->
+      <section class="section">
+        <h2><span>Education</span></h2>
+        <div class="edu-item">
+          <strong>Postgraduate in Banking Services</strong>
+          <div class="edu-meta">NIIT University · 2024 – 2025</div>
+        </div>
+        <div class="edu-item">
+          <strong>B.E. Mechanical Engineering</strong>
+          <div class="edu-meta">VIIT, Visakhapatnam · 2020 – 2023</div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS CARD -->
+      <section class="section">
+        <h2><span>Certifications</span></h2>
+        <ul class="cert-list">
+          <li>Google Data Analytics – Coursera</li>
+          <li>Microsoft Excel Certification</li>
+          <li>Microsoft Power BI</li>
+          <li>Deloitte Data Analytics Job Simulation</li>
+          <li>McKinsey Forward Program</li>
+        </ul>
+      </section>
+
+      <!-- CTA CARD -->
+      <section class="section">
+        <h2><span>Opportunities</span></h2>
+        <p class="cta-text">
+          Open to roles in <strong>Operations, KYC/AML Analytics, Risk Analysis, Business Analytics,
+          and Project Management</strong>, where I can contribute to data-driven decision-making and operational excellence.
+        </p>
       </section>
     </main>
   </div>
