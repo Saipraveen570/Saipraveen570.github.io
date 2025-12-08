@@ -38,34 +38,66 @@
       padding: 18px;
       box-shadow: var(--shadow-soft);
       margin-bottom: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
     }
 
     .header-top {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      gap: 10px;
     }
 
     .name { font-size: 26px; font-weight: 650; }
     .tagline { font-size: 13px; color: var(--muted); }
 
-    .links-row, .nav {
+    .links-row {
       margin-top: 10px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
-    .link-chip, .nav a {
+    .link-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.9);
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      transition: all 0.15s ease;
+    }
+
+    .link-chip:hover {
+      border-color: var(--accent);
+      color: #e5f8ff;
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .nav {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 13px;
+      border-top: 1px solid rgba(55, 65, 81, 0.9);
+      padding-top: 10px;
+    }
+
+    .nav a {
       text-decoration: none;
       padding: 6px 12px;
       border-radius: var(--radius-full);
       border: 1px solid transparent;
       color: var(--muted);
-      transition: 0.15s;
+      transition: all 0.15s ease;
     }
 
-    .link-chip:hover, .nav a:hover {
+    .nav a:hover {
       border-color: var(--accent);
       color: #e5f8ff;
       background: rgba(15, 23, 42, 0.9);
@@ -83,40 +115,75 @@
       padding: 18px;
       margin-bottom: 16px;
       box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(30, 64, 175, 0.4);
     }
 
-    .projects-list { display: flex; flex-direction: column; gap: 14px; }
+    .section h2 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .section h2 span { color: var(--accent); }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
     .project-card {
-      border: 1px solid rgba(56, 189, 248, 0.4);
       border-radius: 16px;
       padding: 14px;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.08), rgba(15,23,42,0.96));
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
     }
 
     .project-header {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-bottom: 6px;
     }
 
-    .project-title { font-weight: 600; }
+    .project-title { font-size: 14px; font-weight: 600; }
 
     .tag {
       font-size: 11px;
       padding: 3px 8px;
       border-radius: var(--radius-full);
-      border: 1px solid #555;
-      margin-right: 4px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
       color: var(--muted);
+      margin-right: 4px;
     }
 
-    .project-body { font-size: 13px; color: #d1d5db; }
+    .project-link {
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--accent);
+    }
 
+    .project-link:hover { text-decoration: underline; }
+
+    .project-body {
+      font-size: 13px;
+      color: #d1d5db;
+      line-height: 1.5;
+    }
+
+    .project-body .metric {
+      color: #e0f2fe;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
   <div class="page">
-
     <header class="header">
       <div class="header-top">
         <div>
@@ -124,15 +191,15 @@
           <div class="tagline">Operations & Project Management · KYC · Analytics</div>
         </div>
         <div class="tagline">
-          📞 +91 9398787726<br>
+          📞 +91 9398787726<br />
           ✉️ praveenpalisetty570@gmail.com
         </div>
       </div>
 
       <div class="links-row">
-        <a class="link-chip" href="index.html">Home</a>
-        <a class="link-chip" href="experience.html">Experience</a>
-        <a class="link-chip" href="projects.html">Projects</a>
+        <a class="link-chip" href="https://linkedin.com/in/palisettypraveen" target="_blank">🔗 LinkedIn</a>
+        <a class="link-chip" href="https://github.com/Saipraveen570" target="_blank">💻 GitHub</a>
+        <a class="link-chip" href="mailto:praveenpalisetty570@gmail.com">✉️ Email</a>
       </div>
 
       <nav class="nav">
@@ -142,53 +209,71 @@
       </nav>
     </header>
 
-    <section class="section">
-      <h2>Featured Projects</h2>
+    <main>
+      <section class="section">
+        <h2><span>Projects</span></h2>
 
-      <div class="projects-list">
+        <div class="projects-list">
 
-        <div class="project-card">
-          <div class="project-header">
-            <div>
-              <div class="project-title">KYC Documentation Dashboard</div>
-              <span class="tag">Power BI</span><span class="tag">Compliance</span>
+          <article class="project-card">
+            <div class="project-header">
+              <div>
+                <div class="project-title">KYC Documentation Dashboard & Alert System</div>
+                <div>
+                  <span class="tag">Power BI</span>
+                  <span class="tag">Compliance</span>
+                  <span class="tag">2024</span>
+                </div>
+              </div>
+              <a class="project-link" href="https://github.com/Saipraveen570/KYC-Documentation-Dashboard-And-Alert-System" target="_blank">🔗 GitHub</a>
             </div>
-            <a href="https://github.com/Saipraveen570/KYC-Documentation-Dashboard-And-Alert-System" target="_blank">🔗 GitHub</a>
-          </div>
-          <p class="project-body">
-            Built a real-time compliance dashboard for 2,000+ KYC records, reducing risk by 30% and saving 15+ hours/week.
-          </p>
-        </div>
+            <p class="project-body">
+              Built a real-time compliance dashboard for <span class="metric">2,000+ KYC records</span> with automated expiry
+              and exception alerts, reducing compliance risk by <span class="metric">30%</span> and saving
+              <span class="metric">15+ hours/week</span> in manual checks.
+            </p>
+          </article>
 
-        <div class="project-card">
-          <div class="project-header">
-            <div>
-              <div class="project-title">Financial Performance Dashboard</div>
-              <span class="tag">Power BI</span><span class="tag">Analytics</span>
+          <article class="project-card">
+            <div class="project-header">
+              <div>
+                <div class="project-title">Financial Performance Analysis Dashboard</div>
+                <div>
+                  <span class="tag">Power BI</span>
+                  <span class="tag">Analytics</span>
+                  <span class="tag">2024</span>
+                </div>
+              </div>
+              <a class="project-link" href="https://github.com/Saipraveen570/FINANCIAL-PERFORMANCE-ANALYSIS-DASHBOARD" target="_blank">🔗 GitHub</a>
             </div>
-            <a href="https://github.com/Saipraveen570/FINANCIAL-PERFORMANCE-ANALYSIS-DASHBOARD" target="_blank">🔗 GitHub</a>
-          </div>
-          <p class="project-body">
-            Analyzed $24.9M revenue across 3 regions with automated dashboards, reducing manual reporting by 60%.
-          </p>
-        </div>
+            <p class="project-body">
+              Analyzed <span class="metric">$24.9M revenue</span> and <span class="metric">$10.5M profit</span> across 3 regions with automated KPI dashboards,
+              reducing manual reporting by <span class="metric">60%</span> and standardizing leadership reporting.
+            </p>
+          </article>
 
-        <div class="project-card">
-          <div class="project-header">
-            <div>
-              <div class="project-title">Personal AI Assistant Bot</div>
-              <span class="tag">Automation</span><span class="tag">Productivity</span>
+          <article class="project-card">
+            <div class="project-header">
+              <div>
+                <div class="project-title">Personal AI Assistant Bot – Productivity Automation</div>
+                <div>
+                  <span class="tag">Automation</span>
+                  <span class="tag">APIs</span>
+                  <span class="tag">2025</span>
+                </div>
+              </div>
+              <a class="project-link" href="https://github.com/Saipraveen570/banking-support-chatbot" target="_blank">🔗 GitHub</a>
             </div>
-            <a href="https://github.com/Saipraveen570/banking-support-chatbot" target="_blank">🔗 GitHub</a>
-          </div>
-          <p class="project-body">
-            Automated scheduling and reminders, saving 10+ hours/month and improving task completion by 25%.
-          </p>
+            <p class="project-body">
+              Built a productivity assistant to automate scheduling, email prioritization and reminders, saving
+              <span class="metric">10+ hours/month</span> and improving on-time task completion by <span class="metric">25%</span>
+              via Google Workspace and Outlook integration.
+            </p>
+          </article>
+
         </div>
-
-      </div>
-    </section>
-
+      </section>
+    </main>
   </div>
 </body>
 </html>
