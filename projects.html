@@ -1,331 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Projects | Praveen Palisetty</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<title>Projects | Praveen Palisetty</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <style>
-    :root {
-      --bg: #0f172a;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.65);
-      --radius-lg: 18px;
-      --radius-full: 999px;
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+<style>
+:root{
+--bg:#0f172a;
+--accent:#38bdf8;
+--accent-soft:rgba(56,189,248,.12);
+--text:#e5e7eb;
+--muted:#9ca3af;
+--shadow-soft:0 18px 40px rgba(15,23,42,.65);
+--radius-lg:18px;
+--radius-full:999px;
+--font-main:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+font-family:var(--font-main);
+background:radial-gradient(circle at top,#1e293b 0,#020617 52%,#000 100%);
+color:var(--text);
+min-height:100vh;
+padding:24px 16px 40px;
+display:flex;
+justify-content:center;
+}
+.page{width:100%;max-width:980px;}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+.header{
+background:linear-gradient(145deg,rgba(15,23,42,.95),rgba(15,23,42,.92));
+border-radius:24px;
+padding:18px;
+box-shadow:var(--shadow-soft);
+margin-bottom:20px;
+border:1px solid rgba(148,163,184,.25);
+}
 
-    body {
-      font-family: var(--font-main);
-      background: radial-gradient(circle at top, #1e293b 0, #020617 52%, #000 100%);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 24px 16px 40px;
-      display: flex;
-      justify-content: center;
-    }
+.header-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.name{font-size:26px;font-weight:650;}
+.tagline{font-size:13px;color:var(--muted);}
 
-    .page { width: 100%; max-width: 980px; }
+.links-row{margin-top:10px;display:flex;gap:10px;}
+.link-chip{
+padding:6px 12px;
+border-radius:var(--radius-full);
+border:1px solid rgba(148,163,184,.35);
+background:rgba(15,23,42,.9);
+text-decoration:none;
+color:var(--muted);
+font-size:13px;
+}
 
-    .header {
-      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.92));
-      border-radius: 24px;
-      padding: 18px;
-      box-shadow: var(--shadow-soft);
-      margin-bottom: 20px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-    }
+.nav{margin-top:12px;display:flex;gap:10px;font-size:13px;border-top:1px solid rgba(55,65,81,.9);padding-top:10px;}
+.nav a{padding:6px 12px;border-radius:var(--radius-full);color:var(--muted);text-decoration:none;}
+.nav a.active{border:1px solid var(--accent);background:var(--accent-soft);color:#e0f2fe;}
 
-    .header-top {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+.section{
+background:rgba(15,23,42,.96);
+border-radius:var(--radius-lg);
+padding:18px;
+margin-bottom:16px;
+box-shadow:var(--shadow-soft);
+border:1px solid rgba(30,64,175,.4);
+}
 
-    .name { font-size: 26px; font-weight: 650; }
-    .tagline { font-size: 13px; color: var(--muted); }
+.section h2{font-size:15px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.section h2 span{color:var(--accent);}
 
-    .links-row {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+.projects-list{display:flex;flex-direction:column;gap:14px;}
 
-    .link-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.9);
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 13px;
-      transition: all 0.15s ease;
-    }
+.project-card{
+border-radius:16px;
+padding:14px;
+border:1px solid rgba(56,189,248,.45);
+background:radial-gradient(circle at top left,rgba(56,189,248,.08),rgba(15,23,42,.96));
+}
 
-    .link-chip:hover {
-      border-color: var(--accent);
-      color: #e5f8ff;
-      background: rgba(15, 23, 42, 1);
-    }
+.project-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:6px;
+}
 
-    .nav {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 13px;
-      border-top: 1px solid rgba(55, 65, 81, 0.9);
-      padding-top: 10px;
-    }
+.project-title{font-size:14px;font-weight:600;}
 
-    .nav a {
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: var(--radius-full);
-      border: 1px solid transparent;
-      color: var(--muted);
-      transition: all 0.15s ease;
-    }
+.project-link{
+font-size:12px;
+color:var(--accent);
+text-decoration:none;
+}
 
-    .nav a:hover {
-      border-color: var(--accent);
-      color: #e5f8ff;
-      background: rgba(15, 23, 42, 0.9);
-    }
+.project-link:hover{text-decoration:underline;}
 
-    .nav a.active {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-      color: #e0f2fe;
-    }
-
-    .section {
-      background: rgba(15, 23, 42, 0.96);
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      margin-bottom: 16px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(30, 64, 175, 0.4);
-    }
-
-    .section h2 {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .section h2 span { color: var(--accent); }
-
-    .projects-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .project-card {
-      border-radius: 16px;
-      padding: 14px;
-      border: 1px solid rgba(56, 189, 248, 0.45);
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.08), rgba(15,23,42,0.96));
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
-    }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .project-title { font-size: 14px; font-weight: 600; }
-
-    .tag {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: var(--muted);
-      margin-right: 4px;
-    }
-
-    .project-link {
-      font-size: 13px;
-      text-decoration: none;
-      color: var(--accent);
-    }
-
-    .project-link:hover { text-decoration: underline; }
-
-    .project-body {
-      font-size: 13px;
-      color: #d1d5db;
-      line-height: 1.5;
-    }
-  </style>
+.project-body{font-size:13px;color:#d1d5db;line-height:1.5;}
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <header class="header">
-      <div class="header-top">
-        <div>
-          <div class="name">Praveen Palisetty</div>
-          <div class="tagline">Operations Management · KYC · Analytics</div>
-        </div>
-        <div class="tagline">
-          📞 +91 9398787726<br />
-          ✉️ praveenpalisetty570@gmail.com
-        </div>
-      </div>
+<div class="page">
 
-      <div class="links-row">
-        <a class="link-chip" href="https://linkedin.com/in/palisettypraveen" target="_blank">🔗 LinkedIn</a>
-        <a class="link-chip" href="https://github.com/Saipraveen570" target="_blank">💻 GitHub</a>
-        <a class="link-chip" href="mailto:praveenpalisetty570@gmail.com">✉️ Email</a>
-      </div>
+<header class="header">
+<div class="header-top">
+<div>
+<div class="name">Praveen Palisetty</div>
+<div class="tagline">KYC · AML · Due Diligence · Compliance Operations</div>
+</div>
+<div class="tagline">
+📞 +91 9398787726<br>
+✉️ praveenpalisetty570@gmail.com
+</div>
+</div>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="experience.html">Experience</a>
-      </nav>
-    </header>
+<div class="links-row">
+<a class="link-chip" href="https://linkedin.com/in/palisettypraveen" target="_blank">LinkedIn</a>
+<a class="link-chip" href="mailto:praveenpalisetty570@gmail.com">Email</a>
+</div>
 
-    <main>
-      <section class="section">
-        <h2><span>Projects</span></h2>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="projects.html" class="active">Projects</a>
+<a href="experience.html">Experience</a>
+</nav>
+</header>
 
-        <div class="projects-list">
+<main>
 
-          <!-- KYC Dashboard -->
-          <article class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">KYC Documentation Dashboard & Alert System</div>
-                <div>
-                  <span class="tag">Power BI</span>
-                  <span class="tag">Compliance</span>
-                  <span class="tag">2025</span>
-                </div>
-              </div>
-              <a class="project-link" href="https://github.com/Saipraveen570/KYC-Documentation-Dashboard-And-Alert-System" target="_blank">🔗 GitHub</a>
-            </div>
-            <p class="project-body">
-              Built a real-time compliance dashboard for 2,000+ KYC records, reducing manual tracking by 60%.
-              Automated expiry and exception alerts, lowering compliance risk by 30% and saving 15+ hours per week.
-            </p>
-          </article>
+<section class="section">
+<h2><span>Compliance Projects</span></h2>
 
-          <!-- Financial Dashboard -->
-          <article class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">Financial Performance Analysis Dashboard</div>
-                <div>
-                  <span class="tag">Power BI</span>
-                  <span class="tag">Analytics</span>
-                  <span class="tag">2025</span>
-                </div>
-              </div>
-              <a class="project-link" href="https://github.com/Saipraveen570/FINANCIAL-PERFORMANCE-ANALYSIS-DASHBOARD" target="_blank">🔗 GitHub</a>
-            </div>
-            <p class="project-body">
-              Analyzed 24.9M revenue and 10.5M profit across 3 regions using automated KPI dashboards.
-              Reduced manual reporting effort by 60% and improved leadership decision turnaround by 40%.
-            </p>
-          </article>
+<div class="projects-list">
 
-          <!-- Personal AI Assistant -->
-          <article class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">Personal AI Assistant Bot – Productivity Automation</div>
-                <div>
-                  <span class="tag">Automation</span>
-                  <span class="tag">Google Workspace</span>
-                  <span class="tag">2025</span>
-                </div>
-              </div>
-            </div>
-            <p class="project-body">
-              Automated scheduling, reminders, and email prioritization, saving over 10 hours per month.
-              Improved on-time task completion by 25% through workflow automation and calendar integration.
-            </p>
-          </article>
+<div class="project-card">
+<div class="project-header">
+<div class="project-title">KYC Documentation & Alert Tracking Dashboard</div>
+<a class="project-link" href="https://github.com/Saipraveen570/KYC-Documentation-Dashboard-And-Alert-System" target="_blank">GitHub ↗</a>
+</div>
+<p class="project-body">
+Developed a Power BI dashboard to track onboarding and periodic KYC reviews. Implemented alerts for missing documents and compliance gaps to support audit readiness and reduce manual tracking.
+</p>
+</div>
 
-          <!-- Stock Forecasting -->
-          <article class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">Stock Price Forecasting Web App</div>
-                <div>
-                  <span class="tag">Python</span>
-                  <span class="tag">Streamlit</span>
-                  <span class="tag">2025</span>
-                </div>
-              </div>
-              <a class="project-link" href="https://github.com/Saipraveen570/StockAnalysis" target="_blank">🔗 GitHub</a>
-            </div>
-            <p class="project-body">
-              Built a real-time web app to forecast 30-day stock prices for any Yahoo Finance ticker.
-              Replaced ARIMA with Linear Regression, cutting forecast latency by 95% and delivering predictions in under 1 second.
-            </p>
-          </article>
+<div class="project-card">
+<div class="project-header">
+<div class="project-title">Transaction Monitoring & Fraud Risk Study</div>
+<a class="project-link" href="https://github.com/Saipraveen570/fraudshield-credit-card-fraud-detection" target="_blank">GitHub ↗</a>
+</div>
+<p class="project-body">
+Analyzed transaction data to identify potentially high-risk patterns linked to fraud or misuse. Applied rule-based logic to flag transactions for review and built a dashboard to visualize flagged activity.
+</p>
+</div>
 
-          <!-- Banking Chatbot -->
-          <article class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">Banking Support Chatbot – AI Customer Assistance</div>
-                <div>
-                  <span class="tag">Gemini 2.5</span>
-                  <span class="tag">TypeScript</span>
-                  <span class="tag">2025</span>
-                </div>
-              </div>
-              <a class="project-link" href="https://github.com/Saipraveen570/banking-support-chatbot" target="_blank">🔗 GitHub</a>
-            </div>
-            <p class="project-body">
-              Designed a secure AI chatbot supporting UPI, cards, KYC, fraud alerts, and loan queries.
-              Implemented enterprise-grade guardrails and multi-level escalation flows for compliant customer support.
-            </p>
-          </article>
+<div class="project-card">
+<div class="project-header">
+<div class="project-title">KYC Support Chatbot for Customer Guidance</div>
+<a class="project-link" href="https://github.com/Saipraveen570/banking-support-chatbot" target="_blank">GitHub ↗</a>
+</div>
+<p class="project-body">
+Designed a chatbot to guide customers on KYC document requirements and compliance queries. Included escalation prompts directing sensitive issues to human compliance teams.
+</p>
+</div>
 
-          <!-- FraudShield -->
-          <article class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">FraudShield – Credit Card Fraud Detection & Monitoring</div>
-                <div>
-                  <span class="tag">Python</span>
-                  <span class="tag">LightGBM</span>
-                  <span class="tag">2025</span>
-                </div>
-              </div>
-              <a class="project-link" href="https://github.com/Saipraveen570/fraudshield-credit-card-fraud-detection" target="_blank">🔗 GitHub</a>
-            </div>
-            <p class="project-body">
-              Built an end-to-end fraud detection system with real-time scoring APIs and a Power BI monitoring dashboard.
-              Engineered behavioral and velocity-based features and tracked business KPIs including precision and recall at low false-positive rates.
-            </p>
-          </article>
+</div>
+</section>
 
-        </div>
-      </section>
-    </main>
-  </div>
+</main>
+</div>
 </body>
 </html>
