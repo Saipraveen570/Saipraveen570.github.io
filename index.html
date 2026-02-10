@@ -7,34 +7,43 @@
 
 <style>
 :root{
---bg:#0b1120;
---card:#111a2e;
+--bg:#0f172a;
 --accent:#38bdf8;
+--accent-soft:rgba(56,189,248,.12);
 --text:#e5e7eb;
---muted:#94a3b8;
---radius:22px;
---border:1px solid rgba(56,189,248,.25);
+--muted:#9ca3af;
+--shadow-soft:0 18px 40px rgba(15,23,42,.65);
+--radius-lg:18px;
+--radius-full:999px;
+--font-main:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
 
 body{
-font-family:system-ui;
-background:radial-gradient(circle at top,#0f172a 0,#020617 55%,#000 100%);
+font-family:var(--font-main);
+background:radial-gradient(circle at top,#1e293b 0,#020617 52%,#000 100%);
 color:var(--text);
-padding:30px 18px;
+min-height:100vh;
+padding:24px 16px 40px;
 display:flex;
 justify-content:center;
 }
 
-.page{max-width:980px;width:100%;}
+.page{
+width:100%;
+max-width:980px;
+}
+
+/* HEADER */
 
 .header{
-background:linear-gradient(145deg,#0f172a,#020617);
-padding:26px;
-border-radius:28px;
-border:var(--border);
-margin-bottom:26px;
+background:linear-gradient(145deg,rgba(15,23,42,.95),rgba(15,23,42,.92));
+border-radius:24px;
+padding:18px;
+box-shadow:var(--shadow-soft);
+margin-bottom:20px;
+border:1px solid rgba(148,163,184,.25);
 }
 
 .header-top{
@@ -44,81 +53,120 @@ flex-wrap:wrap;
 gap:10px;
 }
 
-.name{font-size:32px;font-weight:700;}
-.tagline{color:var(--muted);margin-top:4px;}
+.name{
+font-size:26px;
+font-weight:650;
+}
 
-.links{margin-top:14px;display:flex;gap:12px;}
-.links a{
-padding:8px 16px;
-border-radius:999px;
-border:var(--border);
+.tagline{
+font-size:13px;
+color:var(--muted);
+}
+
+.links-row{
+margin-top:10px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.link-chip{
+padding:6px 12px;
+border-radius:var(--radius-full);
+border:1px solid rgba(148,163,184,.35);
+background:rgba(15,23,42,.9);
 text-decoration:none;
-color:var(--text);
-font-size:14px;
+color:var(--muted);
+font-size:13px;
 }
 
 .nav{
-margin-top:18px;
+margin-top:12px;
 display:flex;
-gap:14px;
-border-top:1px solid #1f2937;
-padding-top:14px;
+gap:10px;
+border-top:1px solid rgba(55,65,81,.9);
+padding-top:10px;
+font-size:13px;
 }
 
 .nav a{
 text-decoration:none;
+padding:6px 12px;
+border-radius:var(--radius-full);
 color:var(--muted);
-padding:8px 16px;
-border-radius:999px;
 }
 
 .nav a.active{
-border:var(--border);
+border:1px solid var(--accent);
+background:var(--accent-soft);
 color:#e0f2fe;
 }
 
-.card{
-background:var(--card);
-border-radius:var(--radius);
-padding:26px;
-border:var(--border);
-margin-bottom:22px;
+/* CARDS */
+
+.section{
+background:rgba(15,23,42,.96);
+border-radius:var(--radius-lg);
+padding:18px;
+margin-bottom:16px;
+box-shadow:var(--shadow-soft);
+border:1px solid rgba(30,64,175,.4);
 }
 
-.card h2{
-font-size:20px;
-margin-bottom:14px;
-color:#e0f2fe;
+.section h2{
+font-size:15px;
+text-transform:uppercase;
+color:var(--muted);
+margin-bottom:10px;
 }
 
-.summary{
-line-height:1.7;
+.section h2 span{
+color:var(--accent);
+}
+
+.summary-text{
+font-size:14px;
+line-height:1.6;
 color:#d1d5db;
 }
 
-.skills{
+.pill-list{
 display:flex;
 flex-wrap:wrap;
-gap:10px;
+gap:6px;
 }
 
-.skill{
-border:var(--border);
-padding:7px 14px;
-border-radius:999px;
+.pill-skill{
+font-size:11px;
+padding:5px 10px;
+border-radius:var(--radius-full);
+background:rgba(15,23,42,.96);
+border:1px solid rgba(55,65,81,.9);
+color:#d1d5db;
+}
+
+.edu-item{
+margin-bottom:10px;
+font-size:13px;
+}
+
+.edu-meta{
+font-size:12px;
+color:var(--muted);
+}
+
+.cert-list{
 font-size:13px;
 color:#d1d5db;
+list-style:none;
+display:flex;
+flex-direction:column;
+gap:4px;
 }
 
-.edu-item{margin-bottom:12px;}
-.edu-title{font-weight:600;}
-.edu-meta{color:var(--muted);font-size:14px;}
-
-ul{margin-left:18px;color:#d1d5db;line-height:1.7;}
-
-.cta{
+.cta-text{
+font-size:13px;
 color:#d1d5db;
-font-size:15px;
 }
 </style>
 </head>
@@ -140,9 +188,9 @@ font-size:15px;
 </div>
 </div>
 
-<div class="links">
-<a href="https://linkedin.com/in/palisettypraveen" target="_blank">LinkedIn</a>
-<a href="mailto:praveenpalisetty570@gmail.com">Email</a>
+<div class="links-row">
+<a class="link-chip" href="https://linkedin.com/in/palisettypraveen" target="_blank">LinkedIn</a>
+<a class="link-chip" href="mailto:praveenpalisetty570@gmail.com">Email</a>
 </div>
 
 <nav class="nav">
@@ -153,50 +201,52 @@ font-size:15px;
 
 </header>
 
+<main>
+
 <!-- SUMMARY -->
-<section class="card">
-<h2>Summary</h2>
-<p class="summary">
-Detail-oriented KYC/AML professional with hands-on experience in customer due diligence, onboarding reviews, and remediation in regulated banking. Experienced in CDD reviews, CIP checks, risk indicator assessment, and maintaining audit-ready records in SOP-driven environments. Familiar with FATF-aligned AML practices and focused on supporting strong compliance and due diligence functions in global banking environments.
+<section class="section">
+<h2><span>Summary</span></h2>
+<p class="summary-text">
+Detail-oriented KYC/AML professional with experience in customer due diligence, onboarding reviews, and remediation in regulated banking. Skilled in AML controls, CIP support, risk-based KYC, and maintaining audit-ready documentation in SOP-driven environments. Familiar with FATF-aligned AML practices and focused on supporting strong compliance functions in global banking environments.
 </p>
 </section>
 
 <!-- SKILLS -->
-<section class="card">
-<h2>Core Skills</h2>
-<div class="skills">
-<span class="skill">KYC Reviews</span>
-<span class="skill">CDD</span>
-<span class="skill">AML Compliance</span>
-<span class="skill">CIP Support</span>
-<span class="skill">Due Diligence</span>
-<span class="skill">Audit Documentation</span>
-<span class="skill">Risk Assessment</span>
-<span class="skill">Data Quality Checks</span>
-<span class="skill">SLA Management</span>
+<section class="section">
+<h2><span>Core Skills</span></h2>
+<div class="pill-list">
+<span class="pill-skill">KYC Reviews</span>
+<span class="pill-skill">CDD</span>
+<span class="pill-skill">AML Compliance</span>
+<span class="pill-skill">CIP Support</span>
+<span class="pill-skill">Due Diligence</span>
+<span class="pill-skill">Audit Documentation</span>
+<span class="pill-skill">Risk Assessment</span>
+<span class="pill-skill">Data Quality Checks</span>
+<span class="pill-skill">SLA Management</span>
 </div>
 </section>
 
 <!-- EDUCATION -->
-<section class="card">
-<h2>Education</h2>
+<section class="section">
+<h2><span>Education</span></h2>
 
 <div class="edu-item">
-<div class="edu-title">Postgraduate in Banking Services</div>
+<strong>Postgraduate Diploma in Banking Services</strong>
 <div class="edu-meta">NIIT University · 2024–2025</div>
 </div>
 
 <div class="edu-item">
-<div class="edu-title">B.E. Mechanical Engineering</div>
+<strong>B.E. Mechanical Engineering</strong>
 <div class="edu-meta">VIIT · 2020–2023</div>
 </div>
 
 </section>
 
 <!-- CERTIFICATIONS -->
-<section class="card">
-<h2>Certifications</h2>
-<ul>
+<section class="section">
+<h2><span>Certifications</span></h2>
+<ul class="cert-list">
 <li>AML & KYC Foundations – Axis Bank</li>
 <li>NISM Series V-A</li>
 <li>Microsoft Excel</li>
@@ -204,14 +254,15 @@ Detail-oriented KYC/AML professional with hands-on experience in customer due di
 </ul>
 </section>
 
-<!-- CTA -->
-<section class="card">
-<h2>Opportunities</h2>
-<p class="cta">
+<!-- OPPORTUNITIES -->
+<section class="section">
+<h2><span>Opportunities</span></h2>
+<p class="cta-text">
 Open to opportunities in KYC, AML, Due Diligence, and Compliance Operations within global financial institutions.
 </p>
 </section>
 
+</main>
 </div>
 </body>
 </html>
